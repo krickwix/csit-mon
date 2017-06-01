@@ -1,0 +1,5 @@
+---
+
+- name: Update apt cache
+  shell: apt update -y
+  when: ansible_pkg_mgr == "apt"

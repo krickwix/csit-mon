@@ -1,0 +1,23 @@
+[all]
+csit-j ansible_host=10.60.17.191 ansible_fqdn=csit-j ansible_user=fandrieu ansible_become=yes
+csit-0 ansible_host=10.60.17.217 ansible_fqdn=csit-0 ansible_user=fandrieu ansible_become=yes
+csit-1 ansible_host=10.60.17.142 ansible_fqdn=csit-1 ansible_user=fandrieu ansible_become=yes
+csit-mon ansible_host=10.60.16.28 ansible_fqdn=csit-mon ansible_user=fandrieu ansible_become=yes
+csit-virl-0 ansible_host=10.60.17.179 ansible_fqdn=csit-virl-0 ansible_user=virl ansible_become=yes
+csit-virl-1 ansible_host=10.60.17.178 ansible_fqdn=csit-virl-1 ansible_user=virl ansible_become=yes
+csit-virl-2 ansible_host=10.60.17.161 ansible_fqdn=csit-virl-2 ansible_user=virl ansible_become=yes
+csit-ws ansible_host=10.60.16.27 ansible_fqdn=csit-ws ansible_user=fandrieu ansible_become=yes
+
+[influxdb]
+csit-mon ansible_host=10.60.16.28 ansible_fqdn=csit-mon ansible_user=fandrieu ansible_become=yes
+
+[grafana]
+csit-mon ansible_host=10.60.16.28 ansible_fqdn=csit-mon ansible_user=fandrieu ansible_become=yes
+
+[collectd]
+csit-j ansible_host=10.60.17.191 ansible_fqdn=csit-j ansible_user=fandrieu ansible_become=yes
+csit-0 ansible_host=10.60.17.217 ansible_fqdn=csit-0 ansible_user=fandrieu ansible_become=yes
+csit-1 ansible_host=10.60.17.142 ansible_fqdn=csit-1 ansible_user=fandrieu ansible_become=yes
+csit-virl-0 ansible_host=10.60.17.179 ansible_fqdn=csit-virl-0 ansible_user=virl ansible_become=yes
+csit-virl-1 ansible_host=10.60.17.178 ansible_fqdn=csit-virl-1 ansible_user=virl ansible_become=yes
+csit-virl-2 ansible_host=10.60.17.161 ansible_fqdn=csit-virl-2 ansible_user=virl ansible_become=yes

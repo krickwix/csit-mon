@@ -1,0 +1,19 @@
+---
+
+- name: Install ntp service
+  package:
+    name: ntp
+    state: present
+
+- name: Set ntp configuration
+  copy:
+    src: files/ntp.conf
+    dest: /etc/ntp.conf
+  notify:
+    - Reload systemctl
+    - Restart ntp service
+
+- name: Ensure ntp started
+  service:
+    name: ntp
+    state: started

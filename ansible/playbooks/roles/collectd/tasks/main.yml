@@ -1,0 +1,30 @@
+---
+
+- name: Install pubkey for repo
+  shell: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AF7ECBB3476ACEB3
+  when: ansible_pkg_mgr == "apt"
+  
+- name: Install collectd package repository
+  apt_repository:
+    repo: deb http://ppa.launchpad.net/collectd/collectd-5.5/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} main
+
+- name: update repo cache
+  shell: apt update -y
+  when: ansible_pkg_mgr == "apt"
+
+- name: Install the latest version of collectd
+  apt:
+    name: collectd
+    state: latest
+
+- name: Install collectd configuration
+  template: src=templates/collectd.conf.j2 dest=/etc/collectd/collectd.conf
+  notify:
+    - Reload systemctl
+    - Restart collectd service
+
+- name: Start collectd
+  service:
+    name: collectd
+    state: started
+    enabled: yes
