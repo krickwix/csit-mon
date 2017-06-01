@@ -1,6 +1,6 @@
 
-FQDNLookup false
-Hostname {{ inventory_hostname }}
+FQDNLookup true
+#Hostname {{ inventory_hostname }}
 
 LoadPlugin syslog
 
@@ -17,10 +17,9 @@ LoadPlugin cpu
 
 LoadPlugin network
 <Plugin "network">
-    Server "{{ hostvars['csit-mon']['ansible_host'] }}" "25826"
+    Server "{{ hostvars['monitor']['ansible_host'] }}" "25826"
 </Plugin>
 
-LoadPlugin dpdk
 LoadPlugin df
 <Plugin df>
     FSType rootfs

@@ -6,5 +6,5 @@
   service: name=collectd state=restarted enabled=yes
   when: ansible_service_mgr == "systemd"
 - name: Restart collectd service
-  shell: service collectd restarted
+  shell: service collectd restart
   when: ansible_service_mgr == "upstart"
