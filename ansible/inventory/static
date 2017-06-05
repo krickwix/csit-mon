@@ -1,23 +1,43 @@
 [all]
-csit-j ansible_host=10.60.17.191 ansible_fqdn=csit-j ansible_user=fandrieu ansible_become=yes
-csit-0 ansible_host=10.60.17.217 ansible_fqdn=csit-0 ansible_user=fandrieu ansible_become=yes
-csit-1 ansible_host=10.60.17.142 ansible_fqdn=csit-1 ansible_user=fandrieu ansible_become=yes
-csit-mon ansible_host=10.60.16.28 ansible_fqdn=csit-mon ansible_user=fandrieu ansible_become=yes
-csit-virl-0 ansible_host=10.60.17.179 ansible_fqdn=csit-virl-0 ansible_user=virl ansible_become=yes
-csit-virl-1 ansible_host=10.60.17.178 ansible_fqdn=csit-virl-1 ansible_user=virl ansible_become=yes
-csit-virl-2 ansible_host=10.60.17.161 ansible_fqdn=csit-virl-2 ansible_user=virl ansible_become=yes
-csit-ws ansible_host=10.60.16.27 ansible_fqdn=csit-ws ansible_user=fandrieu ansible_become=yes
+monitor ansible_host=10.0.11.16 ansible_user=ubuntu ansible_become=yes
+jenkins-master ansible_host=10.0.11.3 ansible_user=ubuntu ansible_become=yes
+jenkins-slave-ubuntu-0 ansible_host=10.0.11.7 ansible_user=jenkins ansible_become=yes
+jenkins-slave-ubuntu-1 ansible_host=10.0.11.9 ansible_user=jenkins ansible_become=yes
+jenkins-slave-ubuntu-2 ansible_host=10.0.11.5 ansible_user=jenkins ansible_become=yes
+jenkins-slave-centos-0 ansible_host=10.0.11.15 ansible_user=jenkins ansible_become=yes
+jenkins-slave-centos-1 ansible_host=10.0.11.12 ansible_user=jenkins ansible_become=yes
+jenkins-slave-centos-2 ansible_host=10.0.11.21 ansible_user=jenkins ansible_become=yes
+virl-0 ansible_host=10.0.11.13 ansible_user=virl ansible_become=yes
 
 [influxdb]
-csit-mon ansible_host=10.60.16.28 ansible_fqdn=csit-mon ansible_user=fandrieu ansible_become=yes
+monitor
 
 [grafana]
-csit-mon ansible_host=10.60.16.28 ansible_fqdn=csit-mon ansible_user=fandrieu ansible_become=yes
+monitor
+
+[kibana]
+monitor
+
+[elasticsearch]
+monitor
 
 [collectd]
-csit-j ansible_host=10.60.17.191 ansible_fqdn=csit-j ansible_user=fandrieu ansible_become=yes
-csit-0 ansible_host=10.60.17.217 ansible_fqdn=csit-0 ansible_user=fandrieu ansible_become=yes
-csit-1 ansible_host=10.60.17.142 ansible_fqdn=csit-1 ansible_user=fandrieu ansible_become=yes
-csit-virl-0 ansible_host=10.60.17.179 ansible_fqdn=csit-virl-0 ansible_user=virl ansible_become=yes
-csit-virl-1 ansible_host=10.60.17.178 ansible_fqdn=csit-virl-1 ansible_user=virl ansible_become=yes
-csit-virl-2 ansible_host=10.60.17.161 ansible_fqdn=csit-virl-2 ansible_user=virl ansible_become=yes
+jenkins-master
+jenkins-slave-ubuntu-0
+jenkins-slave-ubuntu-1
+jenkins-slave-ubuntu-2
+jenkins-slave-centos-0
+jenkins-slave-centos-1
+jenkins-slave-centos-2
+virl-0
+
+[fluentd]
+jenkins-master
+jenkins-slave-ubuntu-0
+jenkins-slave-ubuntu-1
+jenkins-slave-ubuntu-2
+jenkins-slave-centos-0
+jenkins-slave-centos-1
+jenkins-slave-centos-2
+virl-0
+

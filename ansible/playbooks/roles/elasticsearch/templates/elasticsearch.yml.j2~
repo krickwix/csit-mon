@@ -1,0 +1,2 @@
+cluster.name: csitmon
+node.name: {{ inventory_hostname }}

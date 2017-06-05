@@ -16,4 +16,12 @@
 - name: Ensure ntp started
   service:
     name: ntp
-    state: started
+    state: restarted
+  when: ansible_os_family == 'Debian'
+
+- name: Ensure ntp started
+  service:
+    name: ntpd
+    state: restarted
+  when: ansible_os_family == 'RedHat'
+  
