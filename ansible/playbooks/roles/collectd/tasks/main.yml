@@ -1,5 +1,6 @@
 ---
-
+- include_vars: group_vars/common
+    
 - name: Install pubkey for repo
   shell: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AF7ECBB3476ACEB3
   when: ansible_pkg_mgr == "apt"
@@ -10,7 +11,7 @@
   when: ansible_pkg_mgr == "apt"
   
 - name: update repo cache
-  shell: apt update -y
+  shell: apt update -y --allow-unauthenticated --allow-insecure-repositories
   when: ansible_pkg_mgr == "apt"
 
 - name: Install the latest version of collectd
