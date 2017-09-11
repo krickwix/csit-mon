@@ -1,1 +1,0 @@
-elasticsearch.url: "http://{{ hostvars['monitor']['ansible_host'] }}:9200"
