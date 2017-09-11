@@ -1,13 +1,21 @@
+[all:vars]
+ansible_become=yes
+
 [all]
-monitor ansible_host=10.0.11.16 ansible_user=ubuntu ansible_become=yes
-jenkins-master ansible_host=10.0.11.3 ansible_user=ubuntu ansible_become=yes
-jenkins-slave-ubuntu-0 ansible_host=10.0.11.7 ansible_user=jenkins ansible_become=yes
-jenkins-slave-ubuntu-1 ansible_host=10.0.11.9 ansible_user=jenkins ansible_become=yes
-jenkins-slave-ubuntu-2 ansible_host=10.0.11.5 ansible_user=jenkins ansible_become=yes
-jenkins-slave-centos-0 ansible_host=10.0.11.15 ansible_user=jenkins ansible_become=yes
-jenkins-slave-centos-1 ansible_host=10.0.11.12 ansible_user=jenkins ansible_become=yes
-jenkins-slave-centos-2 ansible_host=10.0.11.21 ansible_user=jenkins ansible_become=yes
-virl-0 ansible_host=10.0.11.13 ansible_user=virl ansible_become=yes
+monitor ansible_host=10.0.11.16 ansible_user=ubuntu
+jenkins-master ansible_host=10.0.11.3 ansible_user=ubuntu
+jenkins-slave-ubuntu-0 ansible_host=10.0.11.7 ansible_user=jenkins
+jenkins-slave-ubuntu-1 ansible_host=10.0.11.9 ansible_user=jenkins
+jenkins-slave-ubuntu-2 ansible_host=10.0.11.5 ansible_user=jenkins
+jenkins-slave-centos-0 ansible_host=10.0.11.15 ansible_user=jenkins
+jenkins-slave-centos-1 ansible_host=10.0.11.12 ansible_user=jenkins
+jenkins-slave-centos-2 ansible_host=10.0.11.21 ansible_user=jenkins
+csit-virl-0 ansible_host=10.60.16.23 ansible_user=testuser
+csit-virl-1 ansible_host=10.60.16.22 ansible_user=testuser
+
+[virl]
+csit-virl-0
+csit-virl-1
 
 [influxdb]
 monitor
@@ -21,6 +29,17 @@ monitor
 [elasticsearch]
 monitor
 
+[logstash]
+jenkins-master
+jenkins-slave-ubuntu-0
+jenkins-slave-ubuntu-1
+jenkins-slave-ubuntu-2
+jenkins-slave-centos-0
+jenkins-slave-centos-1
+jenkins-slave-centos-2
+csit-virl-0
+csit-virl-1
+
 [collectd]
 jenkins-master
 jenkins-slave-ubuntu-0
@@ -29,7 +48,8 @@ jenkins-slave-ubuntu-2
 jenkins-slave-centos-0
 jenkins-slave-centos-1
 jenkins-slave-centos-2
-virl-0
+csit-virl-0
+csit-virl-1
 
 [fluentd]
 jenkins-master
@@ -39,5 +59,6 @@ jenkins-slave-ubuntu-2
 jenkins-slave-centos-0
 jenkins-slave-centos-1
 jenkins-slave-centos-2
-virl-0
+csit-virl-0
+csit-virl-1
 
