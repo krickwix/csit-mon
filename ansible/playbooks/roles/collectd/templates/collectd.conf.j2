@@ -8,6 +8,8 @@ LoadPlugin syslog
   LogLevel info
 </Plugin>
 
+LoadPlugin interface
+
 LoadPlugin cpu
 <Plugin cpu>
   ReportByState true
@@ -19,9 +21,10 @@ LoadPlugin numa
 
 LoadPlugin network
 <Plugin "network">
-    Server "{{ hostvars['monitor']['ansible_host'] }}" "25826"
+#    Server "{{ hostvars['monitor']['ansible_host'] }}" "25826"
+    Server "{{ influxdb_ip }}" "25826"
 </Plugin>
-
+LoadPlugin interface
 LoadPlugin df
 <Plugin df>
     FSType rootfs
